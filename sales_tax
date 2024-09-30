@@ -1,0 +1,29 @@
+"""
+Author: Lavell McGrone
+Date: 2024-09-13
+Description: Calculate and purchase order price taxation in from state and county
+"""
+
+# Define variables for taxation
+state_sales_tax = .05
+county_sales_tax = .025
+purchase_price = 1
+purchase_order = 753.25
+
+# Calculate purchase order price
+po_amount = (purchase_price * purchase_order)
+
+# Calculate and round the state and county sales tax
+state_tax = round(purchase_order * state_sales_tax, 2)
+county_tax = round(purchase_order * county_sales_tax, 2)
+total = round(state_tax + po_amount + county_tax, 2)
+
+# Calculate and display sales report
+print("What is the total price of your purchase order? 753.25")
+print(f"{'PO Amount':<17}$    {purchase_order:<15.2f}")
+print(f"{'State Tax':<17}$     {state_tax:<15.2f}")
+print(f"{'County Tax':<17}$     {county_tax:<15.2f}")
+print(f"{'Total':<17}$    {total:<15.2f}")
+
+
+
