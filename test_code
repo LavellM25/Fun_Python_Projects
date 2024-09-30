@@ -1,0 +1,15 @@
+miles_driven = int(input('how many miles did you drive?'))
+gallons_of_gas = int(input('how many gallons of gas did you use?'))
+MPG = miles_driven / gallons_of_gas
+print(MPG)
+
+print(f'Coffee: ${coffee_price:.2f}')
+print(f"Tea price: ${tea_price:.2f}")
+print(f'Cappuccino price: ${cappuccino_price:.2f}')
+
+print(f"{'Coffee':<12} {coffee_sold:<10} ${coffee_price:<7.2f} ${coffee_total:<7.2f}")
+print(f"{'Tea':<12} {tea_sold:<10} ${tea_price:<7.2f} ${tea_total:<7.2f}")
+print(f"{'Cappuccino':<12} {cappuccino_sold:<10} ${cappuccino_price:<7.2f} ${cappuccino_total:<7.2f}")
+print(f"{'Total':<12} {total_cups_sold:<10} {'':<8} ${total_revenue:<7.2f}")
+
+
