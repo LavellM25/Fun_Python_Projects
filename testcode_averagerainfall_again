@@ -1,0 +1,87 @@
+def main():
+    """
+    Main execution control method.
+    :return: None
+    """
+    try:
+        years = get_number_of_years()
+        total_rainfall_all_years = 0
+
+        for year in range(1, years + 1):
+            total_rainfall_year, average_rainfall_year = inputs(year)
+            total_rainfall_all_years += total_rainfall_year
+            outputs(year, total_rainfall_year, average_rainfall_year)
+
+        if years > 0:
+            average_rainfall_all_years = total_rainfall_all_years / (years * 12)
+            print(f"\nTotal rainfall, all years: {total_rainfall_all_years:.2f}")
+            print(f"Average monthly rainfall, all years: {average_rainfall_all_years:.2f}")
+
+    except Exception as err:
+        print(f"An unexpected error occurred: {err}")
+
+
+def get_number_of_years():
+    """
+    Gets the number of years from the user for the rainfall study.
+    :return: A valid integer representing the number of years.
+    """
+    while True:
+        try:
+            years = int(input("How many years are in the rainfall sample? "))
+            if years > 0:
+                return years
+            else:
+                print("Please enter a positive integer.")
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
+
+def inputs(year):
+    """
+    Gets the monthly rainfall data for the specified year.
+    :param year: The year number for which the rainfall is being recorded.
+    :return: The total and average rainfall for the year.
+    """
+    total_rainfall = 0
+    print(f"Rainfall data for year #{year}:")
+
+    for month in range(1, 13):
+        rainfall = get_monthly_rainfall(month)
+        total_rainfall += rainfall
+
+    average_rainfall = total_rainfall / 12
+    return total_rainfall, average_rainfall
+
+
+def get_monthly_rainfall(month):
+    """
+    Gets the rainfall for a specific month and ensures valid input.
+    :param month: The month number (1-12).
+    :return: A valid float representing the rainfall for the month.
+    """
+    while True:
+        try:
+            rainfall = float(input(f"Enter rain for month #{month}: "))
+            if rainfall >= 0:
+                return rainfall
+            else:
+                print("Rainfall cannot be negative. Please enter a valid amount.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+
+def outputs(year, total_rainfall, average_rainfall):
+    """
+    Displays the total and average rainfall for the specified year.
+    :param year: The year number.
+    :param total_rainfall: The total rainfall for the year.
+    :param average_rainfall: The average monthly rainfall for the year.
+    :return: None
+    """
+    print(f"Total rainfall for year #{year}: {total_rainfall:.2f}")
+    print(f"Average monthly rainfall for year #{year}: {average_rainfall:.2f}")
+
+
+# Run the program
+main()
