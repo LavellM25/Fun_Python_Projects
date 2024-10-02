@@ -1,0 +1,54 @@
+def main():
+    print('Welcome to our counting program.')
+    print('(It also adds up the digits counted!)')
+
+    try:
+        small_num, large_num = inputs()
+        total_sum = processing(small_num, large_num)
+        outputs(small_num, large_num, total_sum)
+        restart = input('Would you like to try again? Enter y or n: ')
+        if restart.lower() == 'y':
+            print("Great! Let's do it again.")
+            main()
+        else:
+            print("Thanks for using the program!")
+
+    except Exception as err:
+        print(f"An error occurred: {err}")
+
+
+def inputs():
+    small_num = get_whole_num("Please enter a small number, 0 or higher: ")
+    large_num = get_whole_num(f"Please enter a whole number larger than {small_num}: ", small_num)
+    return small_num, large_num
+
+
+def processing(small_num, large_num):
+    total_sum = 0
+    print("Here are the numbers:")
+    for num in range(small_num, large_num + 1):
+        print(num)
+        total_sum += num
+    return total_sum
+
+
+def outputs(small_num, large_num, total_sum):
+    print(f"The total of all the counted numbers between {small_num} and {large_num} is {total_sum}.")
+
+
+def get_whole_num(prompt, min_val=None):
+    while True:
+        try:
+            num = int(input(prompt))
+            if num >= 0 and (min_val is None or num > min_val):
+                return num
+            else:
+                if min_val is not None:
+                    print(f"Please enter a whole number larger than {min_val}.")
+                else:
+                    print("Please enter a whole number only, 0 or higher.")
+        except ValueError:
+            print("Please enter a valid whole number.")
+
+
+main()
