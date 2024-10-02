@@ -1,0 +1,67 @@
+def main():
+    print('Welcome to our counting program.')
+    print('(It also adds up the digits counted!)')
+
+    try:
+        small_num, large_num = inputs()
+        output_results(small_num, large_num)
+
+        restart = input('Would you like to try again? Enter y or n: ')
+        if restart.lower() == 'y':
+            print("Great! Let's do it again.")
+            main()
+        else:
+            print("Thanks for using the program!")
+
+    except Exception as err:
+        print(f"An unexpected error occurred: {err}")
+
+
+def inputs():
+    small_num = get_whole_num("Please enter a small number, 0 or higher: ")
+    large_num = get_whole_num(f"Please enter a whole number larger than {small_num}: ", small_num)
+    return small_num, large_num
+
+
+def processing(small_num, large_num):
+    """
+    Displays the range of numbers between small_num and large_num, and the sum of those numbers.
+    Merges the printing of the numbers and the total sum into one function.
+    :param small_num: The small number entered by the user.
+    :param large_num: The large number entered by the user.
+    :return: None
+    """
+    total_sum = 0
+    print("Here are the numbers:")
+    for num in range(small_num, large_num + 1):
+        print(num)
+        total_sum += num
+
+    # Now print the total sum in the same function
+    print(f"The total of all the counted numbers between {small_num} and {large_num} is {total_sum}.")
+
+
+def get_whole_num(prompt, small_num=None): #combine the last two functions from previous file into one major function
+    """
+    Gets a whole number from the user and ensures it's valid.
+    If small_num is provided, ensures the number is greater than small_num.
+    :param prompt: The prompt message.
+    :param small_num: The minimum value the number must exceed (for the large number input).
+    :return: A valid whole number.
+    """
+    while True:
+        try:
+            num = int(input(prompt))
+            if num >= 0 and (small_num is None or num > small_num):
+                return num
+            else:
+                if small_num is not None:
+                    print(f"Please enter a whole number larger than {small_num}.")
+                else:
+                    print("Please enter a whole number only, 0 or higher.")
+        except ValueError:
+            print("Please enter a valid whole number.")
+
+
+# Run the program
+main()
