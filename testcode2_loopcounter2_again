@@ -1,3 +1,9 @@
+""""
+Author: Lavell McGrone
+Date: 2024-TBD
+Description: Counting program that calculates and displays the sum of all the printed numbers.
+"""
+
 def main():
     print('Welcome to our counting program.')
     print('(It also adds up the digits counted!)')
@@ -16,12 +22,10 @@ def main():
     except Exception as err:
         print(f"An unexpected error occurred: {err}")
 
-
 def inputs():
     small_num = get_whole_num("Please enter a small number, 0 or higher: ")
     large_num = get_whole_num(f"Please enter a whole number larger than {small_num}: ", small_num)
     return small_num, large_num
-
 
 def processing(small_num, large_num):
     """
@@ -39,7 +43,6 @@ def processing(small_num, large_num):
 
     # Now print the total sum in the same function
     print(f"The total of all the counted numbers between {small_num} and {large_num} is {total_sum}.")
-
 
 def get_whole_num(prompt, small_num=None): #combine the last two functions from previous file into one major function
     """
@@ -62,6 +65,7 @@ def get_whole_num(prompt, small_num=None): #combine the last two functions from 
         except ValueError:
             print("Please enter a valid whole number.")
 
-
 # Run the program
 main()
+
+
