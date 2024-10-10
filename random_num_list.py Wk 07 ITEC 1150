@@ -1,0 +1,96 @@
+import random
+
+
+def main():
+    """
+    Main execution control method.
+    :return: None
+    """
+    print("This program picks random numbers for a list.")
+    try:
+        num_count = inputs()
+        num_list = processing(num_count)
+        outputs(num_list)
+        restart = input('Continue? Enter y or n: ')
+        if restart.lower() == 'y':
+            print("OK, let's generate another list.")
+            main()  # Recursion to restart the process
+        else:
+            print('Thanks for using the program.')
+    except Exception as err:
+        print(f'Error: {err}')
+
+
+def inputs():
+    """
+    Gathers and validates the number of random numbers the user wants in the list.
+    :return: A positive integer representing how many numbers the user wants.
+    """
+    num_count = get_pos_num("Please enter how many random numbers you'd like to generate. ")
+    return num_count
+
+
+def processing(num_count):
+    """
+    Core logic that generates the list of random integers.
+
+    :param num_count: A positive integer specifying the number of random numbers to generate.
+    :return: A list of random integers between 1 and 100.
+    """
+    num_list = []
+    for _ in range(num_count):
+        num_list.append(random.randint(1, 100))
+    return num_list
+
+
+def outputs(num_list):
+    """
+    Displays the sorted list, total, minimum, and maximum values from the list, formatted as per the instructor's sample output.
+
+    :param num_list: The list of random integers.
+    :return: None
+    """
+    num_list.sort()  # Sorts the list in ascending order
+    total = sum(num_list)
+    minimum = min(num_list)
+    maximum = max(num_list)
+
+    # Output matching instructor's format
+    print(f"\nHere is your list of {len(num_list)} integers, randomly selected and sorted: {num_list}")
+
+    # Print list using the shortcut method (comma-separated values)
+    print(f"Here is your list printed with the shortcut method: {', '.join(map(str, num_list))}")
+
+    # Print list via a loop and calculate the total in the same format as provided
+    print("Here is your list, printed via a loop, with total:", end=" ")
+    for i, num in enumerate(num_list):
+        if i < len(num_list) - 1:
+            print(f"{num} +", end=" ")
+        else:
+            print(f"{num} =", total)
+
+    # Display minimum and maximum values
+    print(f"The minimum is {minimum} and the maximum is {maximum}.")
+
+
+def get_pos_num(prompt):
+    """
+    Gets a positive whole number from the user. Prompts the user, validates the input,
+    and ensures it is a positive integer.
+
+    :return: A positive integer
+    """
+    while True:
+        try:
+            pos_int = int(input(f'{prompt}Please enter a whole number: '))
+            if pos_int > 0:
+                break
+            else:
+                print('Enter a whole number greater than 0.')
+        except ValueError:
+            print('Only whole numbers are allowed.')
+    return pos_int
+
+
+# Start the program
+main()
