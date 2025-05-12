@@ -3,11 +3,44 @@ from openpyxl.styles import Font, Alignment, PatternFill
 
 # Define the course data
 courses = [
-    ["C182", "Introduction to IT", 3, 7, "Yes", "Yes", "Yes", "Yes", "General Education"],
-    ["C955", "Introduction to Probability and Statistics", 3, 10, "Yes", "Yes", "Yes", "Yes", "Mathematics"],
-    ["C173", "Scripting and Programming - Foundations", 3, 12, "Yes", "Yes", "Yes", "Yes", "Programming"],
-    ["C188", "Software Engineering", 3, 15, "No", "No", "No", "No", "Core"],
-    ["C195", "Software Engineering Capstone", 4, 20, "No", "No", "No", "No", "Capstone"]
+    ["D278", "Scripting and Programming - Foundations", 3, "Yes", "Yes", "Yes", "Yes", "Programming"],
+    ["D335", "Introduction to Programming in Python", 3, "Yes", "Yes", "Yes", "Programming"],
+    ["D370", "IT Leadership Foundations", 3, "Yes", "Yes", "Yes", "Programming"],
+    ["D276", "Web Development Foundations", 3, "Yes", "Yes", "Yes", "Programming"],
+    ["D197", "Version Control", 1, "Yes", "Yes", "Yes", "Programming"],
+    ["D277", "Front-End Web Development", 3, "Yes", "Yes", "Yes", "Programming"],
+    ["C955", "Applied Probability and Statistics", 3, "Yes", "Yes", "Yes", "Programming"],
+    ["D322", "Introduction to IT", 3, "Yes", "Yes", "Yes", "Yes", "General Education"],
+    ["C683", "Natural Science Lab", 2, "Yes", "Yes", "Yes", "General Education"],
+    ["C957", "Applied Algebra", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["C949", "Data Structures and Algorithms I", 4, "Yes", "Yes", "Yes", "General Education"],
+    ["D372", "Introduction to Systems Thinking", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D426", "Data Management - Foundations", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D427", "Data Management - Applications", 4, "Yes", "Yes", "Yes", "General Education"],
+    ["D280", "JavaScript Programming", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D333", "Ethics in Technology", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D326", "Advanced Data Management", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D279", "User Interface Design", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D479", "User Experience Design", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D286", "Java Fundamentals", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["C458", "Health, Fitness and Wellness", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D287", "Java Frameworks", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D282", "Cloud Foundations", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D386", "Hardware and Operating Systems Essentials", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D324", "Business of IT - Project Management", 4, "Yes", "Yes", "Yes", "General Education"],
+    ["D288", "Back-End Programming", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D270", "Composition: Successful Self-Expression", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D336", "Business of IT - Applications", 4, "Yes", "Yes", "Yes", "General Education"],
+    ["D199", "Introduction to Physical and Human Geography", 3, "Yes", "Yes", "General Education"],
+    ["D387", "Advanced Java", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D385", "Software Security and Testing", 3, "Yes", "Yes", "General Education"],
+    ["D339", "Technical Communication", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["D480", "Software Design and Quality Assurance", 3, "Yes", "Yes", "Yes", "General Education"],
+    ["C963", "American Politics and the US Constitution", 3, "Yes", "Yes", "General Education"],
+    ["D284", "Software Engineering", 4, "Yes", "Yes", "Yes", "General Education"],
+    ["D308", "Mobile Application Development(Android)", 3, "Yes", "Yes", "General Education"],
+    ["D424", "Software Engineering Capstone", 4, "Yes", "Yes", "General Education"]
+
 ]
 
 # Create a new workbook and select the active sheet
@@ -16,7 +49,7 @@ ws = wb.active
 ws.title = "BS Software Engineering"
 
 # Add header row
-header = ["ID", "Course Name", "Units", "Strategy (Days)", "Study.com Transfers", "Straighterline", "Sophia.org", "Certificate", "Category"]
+header = ["ID", "Course Name", "Units", "Study.com Transfers", "Straighterline", "Sophia.org", "Certificate", "Category"]
 ws.append(header)
 
 # Apply styles to the header row
